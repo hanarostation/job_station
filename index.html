@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="데이터스테이션 - 데이터 분석·AI 직군 무료 취업 컨설팅. 서류부터 포토폴리오, 모의 면접까지 데이터 직군 면접관이 직접 코칭합니다.">
+<meta property="og:title" content="DATA STATION — 무료 취업 컨설팅">
+<meta property="og:description" content="데이터 분석·AI 직군 면접관이 서류부터 면접까지 직접 코칭합니다.">
+<title>DATA STATION — 무료 취업 컨설팅</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0B0D12;
+  --bg-2: #11141C;
+  --bg-3: #1A1F2E;
+  --bg-4: #232838;
+  --accent: #4D9FFF;
+  --accent-2: #FFB627;
+  --accent-glow: rgba(77, 159, 255, 0.22);
+  --text: #F2F0E8;
+  --text-dim: #9094A0;
+  --text-mute: #5D6170;
+  --line: rgba(242, 240, 232, 0.10);
+  --line-strong: rgba(242, 240, 232, 0.22);
+
+  --font-body: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ============ Decorative dot grid background ============ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(242, 240, 232, 0.04) 1.2px, transparent 1.2px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ NAV ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  background: rgba(11, 13, 18, 0.85);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-wrap img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+/* Fallback if logo.png is missing */
+.logo-fallback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.logo-fallback .dot {
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 14px var(--accent);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  border-radius: 4px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(77, 159, 255, 0.25);
+}
+
+.nav-cta .arrow {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+
+/* ============ HERO ============ */
+.hero {
+  padding: 120px 0 100px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero-tag::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero h1 {
+  font-size: clamp(56px, 9vw, 120px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  margin-bottom: 36px;
+}
+
+.hero h1 .accent {
+  color: var(--accent);
+  position: relative;
+}
+
+.hero h1 .accent::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  margin-left: 8px;
+  vertical-align: 0.4em;
+}
+
+.hero-desc {
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.6;
+  color: var(--text-dim);
+  font-weight: 500;
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+
+.hero-desc strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.meta-pill .pill-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 32px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  border-radius: 6px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(77, 159, 255, 0.3);
+}
+
+.hero-cta .arrow {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+
+.hero-cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ============ PROCESS OVERVIEW ============ */
+.process-overview {
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-tag::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 64px;
+}
+
+.section-title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.step-card {
+  padding: 36px 28px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 18px;
+}
+
+.step-card h3 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.step-card p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+/* ============ SECTION (each step) ============ */
+.section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.section + .section {
+  border-top: 1px solid var(--line);
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 40px;
+  margin-bottom: 64px;
+  align-items: start;
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 84px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+}
+
+.section-head-content .label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-head-content h2 {
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.045em;
+  margin-bottom: 20px;
+}
+
+.section-head-content .lead {
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--text-dim);
+  max-width: 620px;
+}
+
+/* ============ Step 1 - Detailed checklist ============ */
+.checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.check-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 28px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.check-card:hover {
+  background: var(--bg-3);
+}
+
+.check-card .num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.check-card .body {
+  flex: 1;
+}
+
+.check-card h4 {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.check-card p {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* Email submission box */
+.email-box {
+  margin-top: 16px;
+  padding: 36px;
+  background: var(--bg-3);
+  border: 1.5px dashed rgba(77, 159, 255, 0.4);
+  border-radius: 6px;
+  position: relative;
+}
+
+.email-box::before {
+  content: "📨 SUBMISSION";
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--bg);
+  padding: 2px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+}
+
+.email-box h4 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+
+.email-box .desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.email-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.email-row .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-mute);
+  text-transform: uppercase;
+}
+
+.email-row .addr {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+  flex: 1;
+  word-break: break-all;
+}
+
+.email-row .copy-btn {
+  padding: 8px 14px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.email-row .copy-btn:hover { opacity: 0.85; }
+.email-row .copy-btn.copied {
+  background: var(--text);
+}
+
+.email-content-list {
+  list-style: none;
+}
+
+.email-content-list .list-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.email-content-list li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.email-content-list li:last-child { border-bottom: none; }
+
+.email-content-list li .bullet {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  min-width: 32px;
+}
+
+.email-content-list li .file-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: var(--bg-3);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+
+/* ============ Step 2 - Portfolio ============ */
+.portfolio-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.portfolio-bullets .item {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 28px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.portfolio-bullets .item .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.portfolio-bullets .item .txt {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ============ Step 3 - Mock Interview ============ */
+.prereq-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 36px 40px;
+  background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prereq-callout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+}
+
+.prereq-icon {
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.prereq-text h4 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+
+.prereq-text p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.note-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px;
+  background: rgba(77, 159, 255, 0.06);
+  border: 1.5px dashed rgba(77, 159, 255, 0.4);
+  border-radius: 4px;
+  margin-bottom: 48px;
+}
+
+.note-line .note-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.note-line .note-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ============ CTA Button (in sections) ============ */
+.cta-row {
+  margin-top: 24px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 36px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  border-radius: 6px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(77, 159, 255, 0.3);
+}
+
+.cta-button .arrow {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover .arrow { transform: translateX(4px); }
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+
+.cta-button.secondary:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ============ Final CTA ============ */
+.final-cta {
+  padding: 140px 0;
+  text-align: center;
+  background: 
+    radial-gradient(ellipse 700px 500px at 50% 50%, var(--accent-glow) 0%, transparent 70%),
+    var(--bg);
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+
+.final-cta h2 {
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.045em;
+  margin-bottom: 32px;
+}
+
+.final-cta h2 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.final-cta p {
+  font-size: 20px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+/* ============ Footer ============ */
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-mute);
+  letter-spacing: 0.06em;
+}
+
+.footer-text strong {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .nav-inner { padding: 14px 20px; }
+  .logo-wrap img { height: 28px; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; }
+
+  .hero { padding: 64px 0 64px; }
+  .hero h1 { font-size: 52px; }
+  .hero-desc { font-size: 17px; }
+  .hero-cta { padding: 16px 24px; font-size: 16px; width: 100%; justify-content: center; }
+
+  .process-overview { padding: 56px 0; }
+  .section-title { font-size: 36px; margin-bottom: 40px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 12px; }
+  .step-card h3 { font-size: 26px; }
+
+  .section { padding: 72px 0; }
+  .section-header { 
+    grid-template-columns: 1fr; 
+    gap: 16px; 
+    margin-bottom: 40px;
+  }
+  .section-num { font-size: 56px; }
+  .section-head-content h2 { font-size: 40px; }
+  .section-head-content .lead { font-size: 17px; }
+
+  .checklist { grid-template-columns: 1fr; }
+  .check-card { padding: 22px; }
+
+  .email-box { padding: 24px 20px; }
+  .email-box::before { left: 16px; }
+  .email-row { padding: 14px 16px; }
+  .email-row .addr { font-size: 14px; }
+
+  .portfolio-bullets .item { padding: 18px 22px; }
+  .portfolio-bullets .item .txt { font-size: 16px; }
+
+  .prereq-callout {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+    gap: 16px;
+  }
+  .prereq-icon { font-size: 40px; }
+
+  .cta-button { padding: 16px 24px; font-size: 16px; width: 100%; justify-content: center; }
+
+  .final-cta { padding: 80px 0; }
+  .final-cta p { font-size: 17px; }
+
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+/* ============ Subtle animations ============ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tag, .hero h1, .hero-desc, .hero-meta, .hero-cta {
+  animation: fadeUp 0.8s ease backwards;
+}
+.hero h1 { animation-delay: 0.1s; }
+.hero-desc { animation-delay: 0.2s; }
+.hero-meta { animation-delay: 0.3s; }
+.hero-cta { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="DATA STATION" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-fallback" style="display:none;">
+        <span class="dot"></span>
+        <span>DATA STATION</span>
+      </div>
+    </div>
+    <a href="https://open.kakao.com/o/sdW47Usi" target="_blank" rel="noopener" class="nav-cta">
+      상담 신청 <span class="arrow">→</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">FREE CAREER CONSULTING · 2026 H2</div>
+    <h1>
+      데이터 직군<br>
+      <span class="accent">취업 컨설팅</span>
+    </h1>
+    <p class="hero-desc">
+      데이터 분석·AI 직군 면접관이 <strong>서류부터 면접까지</strong>
+      직접 코칭합니다. 아래 3단계 프로세스를 따라
+      체계적으로 준비해 보세요.
+    </p>
+    <div class="hero-meta">
+      <div class="meta-pill"><span class="pill-dot"></span>서류 코칭</div>
+      <div class="meta-pill"><span class="pill-dot"></span>포토폴리오</div>
+      <div class="meta-pill"><span class="pill-dot"></span>1:1 모의 면접</div>
+      <div class="meta-pill"><span class="pill-dot"></span>대면 + 비대면</div>
+    </div>
+    <a href="https://open.kakao.com/o/sdW47Usi" target="_blank" rel="noopener" class="hero-cta">
+      카카오톡 상담 신청하기 <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ PROCESS OVERVIEW ============ -->
+<section class="process-overview">
+  <div class="container">
+    <div class="section-tag">3-STEP PROCESS</div>
+    <h2 class="section-title">단계별로<br><em>차근차근.</em></h2>
+
+    <div class="steps-grid">
+      <a href="#step-1" style="text-decoration:none; color:inherit;">
+        <div class="step-card">
+          <div class="step-num">STEP 01</div>
+          <h3>서류 준비</h3>
+          <p>희망 기업·직군 선정 후 Gallup 강점 기반 자소서 작성</p>
+        </div>
+      </a>
+      <a href="#step-2" style="text-decoration:none; color:inherit;">
+        <div class="step-card">
+          <div class="step-num">STEP 02</div>
+          <h3>포토폴리오</h3>
+          <p>직군에 가장 적합한 프로젝트 선택 및 실무 관점 검토</p>
+        </div>
+      </a>
+      <a href="#step-3" style="text-decoration:none; color:inherit;">
+        <div class="step-card">
+          <div class="step-num">STEP 03</div>
+          <h3>모의 면접</h3>
+          <p>1·2단계 완료 후 일정 조율을 통한 1:1 실전 면접</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 1 ============ -->
+<section class="section" id="step-1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-head-content">
+        <div class="label">STEP 01 · DOCUMENT</div>
+        <h2>서류 준비</h2>
+        <p class="lead">
+          희망 기업·직군을 명확히 한 뒤 Gallup 강점 분석을 토대로
+          나의 강점이 자연스럽게 드러나는 자기소개서를 작성합니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="check-card">
+        <div class="num">01</div>
+        <div class="body">
+          <h4>지원 희망 회사 3곳 확인</h4>
+          <p>지원 희망 회사 총 3곳과 각 회사의 희망 직군을 정리해 주세요.</p>
+        </div>
+      </div>
+      <div class="check-card">
+        <div class="num">02</div>
+        <div class="body">
+          <h4>Gallup 강점 분석 실시</h4>
+          <p>본인의 강점을 객관적으로 진단하기 위해 Gallup 강점 분석을 진행합니다.</p>
+        </div>
+      </div>
+      <div class="check-card">
+        <div class="num">03</div>
+        <div class="body">
+          <h4>Top 5 강점 기반 자소서 작성</h4>
+          <p>진단 결과 도출된 본인의 Top 5 강점을 중심으로 자기소개서를 작성합니다.</p>
+        </div>
+      </div>
+      <div class="check-card">
+        <div class="num">04</div>
+        <div class="body">
+          <h4>자기소개서 메일 송부</h4>
+          <p>아래 안내된 메일 주소로 정해진 양식에 맞춰 자기소개서를 보내주세요.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Submission Box -->
+    <div class="email-box">
+      <h4>자기소개서 송부 안내</h4>
+      <p class="desc">아래 메일 주소로 작성한 내용을 보내주세요.</p>
+
+      <div class="email-row">
+        <span class="label">TO</span>
+        <span class="addr" id="email-addr">0001jmp@gmail.com</span>
+        <button class="copy-btn" onclick="copyEmail(this)">복사</button>
+      </div>
+
+      <div class="email-content-list">
+        <div class="list-title">// 메일에 포함되어야 할 내용</div>
+        <li><span class="bullet">01.</span> 지원 희망 회사 3곳</li>
+        <li><span class="bullet">02.</span> 희망 직군</li>
+        <li><span class="bullet">03.</span> 자신의 강점 (Gallup Top 5)</li>
+        <li><span class="bullet">04.</span> 자기소개서 파일 <span class="file-tag">.docx</span></li>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 2 ============ -->
+<section class="section" id="step-2">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-head-content">
+        <div class="label">STEP 02 · PORTFOLIO</div>
+        <h2>포토폴리오</h2>
+        <p class="lead">
+          희망 직군에 가장 적합한 프로젝트를 함께 선별하고,
+          실무진 관점에서 구조와 스토리라인을 검토합니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="portfolio-bullets">
+      <div class="item">
+        <div class="dot"></div>
+        <div class="txt">해당 직군에 가장 적합한 포토폴리오(프로젝트) 선택</div>
+      </div>
+      <div class="item">
+        <div class="dot"></div>
+        <div class="txt">프로젝트 관련 상담 및 검토</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="https://open.kakao.com/o/sdW47Usi" target="_blank" rel="noopener" class="cta-button">
+        상담 신청 <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 3 ============ -->
+<section class="section" id="step-3">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-head-content">
+        <div class="label">STEP 03 · MOCK INTERVIEW</div>
+        <h2>모의 면접</h2>
+        <p class="lead">
+          앞서 1·2 단계를 모두 완료한 분들을 대상으로,
+          개별 상담을 통해 모의 면접 일자를 조율합니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="prereq-callout">
+      <div class="prereq-icon">!</div>
+      <div class="prereq-text">
+        <h4>1·2 단계 선행 필수</h4>
+        <p>
+          모의 면접은 서류 준비와 포토폴리오 단계가 모두 완료된 후에 진행됩니다.
+          일정은 개별 상담을 통해 조율됩니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="note-line">
+      <span class="note-tag">NOTE</span>
+      <span class="note-text">시간 / 장소는 개인 협의 후 진행</span>
+    </div>
+
+    <div class="cta-row">
+      <a href="https://open.kakao.com/o/sdW47Usi" target="_blank" rel="noopener" class="cta-button secondary">
+        모의 면접 일정 문의 <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="container">
+    <h2>지금 바로<br><em>시작해 볼까요?</em></h2>
+    <p>
+      카카오톡 오픈채팅으로 부담 없이 문의해 주세요.<br>
+      여러분의 데이터 직군 도전을 응원합니다.
+    </p>
+    <a href="https://open.kakao.com/o/sdW47Usi" target="_blank" rel="noopener" class="cta-button">
+      카카오톡 상담 신청 <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <strong>DATA STATION</strong> — FREE CAREER CONSULTING · 2026 H2
+      </div>
+      <div class="footer-text">
+        © 2026 DATA STATION
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Email copy-to-clipboard
+  function copyEmail(btn) {
+    const email = document.getElementById('email-addr').textContent.trim();
+    const fallbackCopy = (text) => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(_) {}
+      document.body.removeChild(ta);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).catch(() => fallbackCopy(email));
+    } else {
+      fallbackCopy(email);
+    }
+    btn.classList.add('copied');
+    btn.textContent = '복사됨';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = '복사';
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>
